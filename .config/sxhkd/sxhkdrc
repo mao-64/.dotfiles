@@ -1,0 +1,71 @@
+super + Return
+	st
+
+XF86MonBrightnessUp
+	./Scripts/bl/bl.sh -i
+
+XF86MonBrightnessDown
+	./Scripts/bl/bl.sh -d
+
+XF86AudioMicMute
+	pactl set-source-mute 1 toggle
+
+XF86AudioLowerVolume
+	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%
+
+XF86AudioRaiseVolume
+	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%
+
+super + XF86AudioLowerVolume
+	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -1%
+
+super + XF86AudioRaiseVolume
+	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +1%
+
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
+
+XF86AudioPlay
+	mpc toggle
+
+XF86AudioNext
+	mpc next
+
+XF86AudioPrev
+	mpc prev
+
+super + c
+	dmenu_run -b -x 5 -y 15 -z 700 -l 10 -bw 5 -fn Ubuntu
+	
+super + shift + d
+	dmenu_run -b -x 5 -y 15 -z 700 -l 10 -bw 5 -fn "Standard Galactic Alphabet"
+
+super + space
+	dmenu_run -b -x 5 -y 15 -z 700 -l 10 -bw 5 -fn Ubuntu
+
+super + v
+	~/Scripts/scratchpad/scratchpad_tmux.sh
+
+super + q
+	xclip -o | qrencode -s 20 -o ~/Scripts/qr/test.png ; xclip -i ~/Scripts/qr/test.png -selection clipboard -t image/png
+
+super + alt + m
+	st -e ncmpcpp
+
+super + alt + e
+	~/Scripts/dmenu_emoji/emenu.sh
+
+super + alt + r
+	st -e ranger
+
+super + a
+	st -e ranger ~/Videos/anime
+
+super + alt + s
+	st -e pulsemixer
+
+super + shift + s
+	./Script/bookmarks.sh
+
+Print
+	flameshot full -p ~/Pictures/

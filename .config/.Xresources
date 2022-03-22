@@ -1,0 +1,65 @@
+#define n_black	#15161E
+#define n_red		#f7768e
+#define n_green	#9ece6a
+#define n_yellow	#e0af68
+#define n_blue		#7aa2f7
+#define n_magenta	#bb9af7
+#define n_cyan		#7dcfff
+#define n_while	#a9b1d6
+
+#define b_black	#414868
+#define b_red		#f7768e
+#define b_green	#9ece6a
+#define b_yellow	#e0af68
+#define b_blue		#7aa2f7
+#define b_magenta	#bb9af7
+#define b_cyan		#7dcfff
+#define b_while	#c0caf5
+
+*background: #1a1b26
+*foreground: #c0caf5
+
+*color0: n_black
+*color1: n_red
+*color2: n_green
+*color3: n_yellow
+*color4: n_blue
+*color5: n_magenta
+*color6: n_cyan
+*color7: n_while
+
+*color8:  b_black
+*color9:  b_red
+*color10: b_green
+*color11: b_yellow
+*color12: b_blue
+*color13: b_magenta
+*color14: b_cyan
+*color15: b_while
+
+! dmenu
+dmenu.background: #1a1b26
+dmenu.foreground: #c0caf5
+dmenu.selbackground: #a9b1d6
+
+! Polybar !
+polybar.background:             #1a1b26
+polybar.background-alt:         base01
+
+polybar.foreground:             b_black
+polybar.foreground-alt:         b_while
+
+polybar.icon:                   c15
+polybar.alert:                  c01
+
+polybar.tag-focused-background:     9ece6a
+polybar.tag-unfocused-background:   n_blue
+!polybar.tag-unfocused-background:   base01
+polybar.tag-visible-background:     n_magenta
+polybar.tag-urgent-background:      c09
+
+polybar.primary:      c00
+polybar.secondary:    c00
+polybar.tertiary:     c00
+polybar.quaternary:   c00
+polybar.quinary:      c00menu.selforeground: #1a1b26
