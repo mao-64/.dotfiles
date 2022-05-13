@@ -24,6 +24,7 @@ vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeToggle<CR>", { noremap = fal
 
 vim.api.nvim_set_keymap("n", "<leader>fv", "<cmd>lua require'mao.telescope'.nvim_files()<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>fc", "<cmd>lua require'mao.telescope'.conf_files()<CR>", { noremap = false })
+vim.api.nvim_set_keymap("n", "<leader>fn", "<cmd>lua require'mao.telescope'.notes()<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope find_files<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope git_files<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = false })
@@ -35,4 +36,8 @@ vim.api.nvim_set_keymap("n", "<leader>cw", "<cmd>lua require'mao.telescope'.anim
 
 vim.api.nvim_set_keymap("n", "<leader>ct", ":w<CR>:!tsc %<CR>", { noremap = false })
 
-vim.api.nvim_set_keymap("n", "<C-t>", ":tabNext<CR>", { noremap = false })
+
+--tab
+vim.api.nvim_set_keymap("n", "<leader>cc", "<cmd>tabnew<CR>", { noremap = false })
+vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>tabprevious<CR>", { noremap = false })
+vim.api.nvim_set_keymap("n", "<leader>l", "<cmd>tabnext<CR>", { noremap = false })

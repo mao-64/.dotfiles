@@ -2,40 +2,46 @@ local lspkind = require "lspkind"
 lspkind.init()
 
 local cmp = require "cmp"
+local luasnip = require "luasnip"
 
 cmp.setup {
 --	view = {            
 --      entries = "custom" -- can be "custom", "wildmenu" or "native"
 --   },
+
+
   mapping = {
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-e>"] = cmp.mapping.close(),
-["<c-y>"] = cmp.mapping(
-  cmp.mapping.confirm {
-    behavior = cmp.ConfirmBehavior.Insert,
-    select = true,
-  },
-  { "i", "c" }
-),
+    --["<C-d>"] = cmp.mapping.scroll_docs(-4),
+    --["<C-f>"] = cmp.mapping.scroll_docs(4),
+	["<C-e>"] = cmp.mapping.close(),
+	--["<C-y>"] = cmp.mapping(cmp.mapping.confirm(), { 'i', 'c' }),
+--["<c-y>"] = cmp.mapping(
+--  cmp.mapping.confirm {
+--    behavior = cmp.ConfirmBehavior.Insert,
+--    select = true,
+--  },
+--  { "i", "c" }
+--),
+	 ['<CR>'] = cmp.mapping.confirm({ select = true }), 
 
-    ["<c-space>"] = cmp.mapping {
-      i = cmp.mapping.complete(),
-      c = function(
-        _ --[[fallback]]
-      )
-        if cmp.visible() then
-          if not cmp.confirm { select = true } then
-            return
-          end
-        else
-          cmp.complete()
-        end
-      end,
-    },
 
-    -- ["<tab>"] = false,
-    ["<tab>"] = cmp.config.disable,
+--    ["<c-space>"] = cmp.mapping {
+--      i = cmp.mapping.complete(),
+--      c = function(
+--        _ --[[fallback]]
+--      )
+--        if cmp.visible() then
+--          if not cmp.confirm { select = true } then
+--            return
+--          end
+--        else
+--          cmp.complete()
+--        end
+--      end,
+--    },
+
+     --["<tab>"] = false,
+	--["<tab>"] = cmp.config.disable,
 
     -- ["<tab>"] = cmp.mapping {
     --   i = cmp.config.disable,
@@ -45,10 +51,10 @@ cmp.setup {
     -- },
 
     -- Testing
-    ["<c-q>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
+--    ["<c-q>"] = cmp.mapping.confirm {
+--      behavior = cmp.ConfirmBehavior.Replace,
+--      select = true,
+--    },
 
     -- If you want tab completion :'(
     --  First you have to just promise to read `:help ins-completion`.
@@ -84,8 +90,9 @@ cmp.setup {
 
     { name = "nvim_lsp" },
     { name = "path" },
-    --{ name = "luasnip" },
+    { name = "luasnip" },
     { name = "buffer", keyword_length = 1 },
+	 { name = 'dictionary' },
   },
 
   sorting = {
@@ -147,3 +154,46 @@ cmp.setup {
     ghost_text = false,
   },
 }
+
+--cmp.setup({
+--    ...
+--    sources = {
+--        ...
+--        { name = "luasnip" },
+--        ...
+--    },
+--    mapping = {
+--        ["<cr>"] = cmp.mapping.confirm(),
+--        ["<Tab>"] = cmp.mapping(function(fallback)
+--          if cmp.visible() then
+--            cmp.select_next_item()
+--          elseif luasnip.expand_or_jumpable() then
+--            luasnip.expand_or_jump()
+--          elseif has_words_before() then
+--            cmp.complete()
+--          else
+--            fallback()
+--          end
+--        end, { "i", "s" }),
+--
+--        ["<S-Tab>"] = cmp.mapping(function(fallback)
+--          if cmp.visible() then
+--            cmp.select_prev_item()
+--          elseif luasnip.jumpable(-1) then
+--            luasnip.jump(-1)
+--          else
+--            fallback()
+--          end
+--        end, { "i", "s" }),
+--        },
+--    ...
+--    snippet = {
+--        expand = function(args)
+--            local luasnip = prequire("luasnip")
+--            if not luasnip then
+--                return
+--            end
+--            luasnip.lsp_expand(args.body)
+--        end,
+--    },
+--})

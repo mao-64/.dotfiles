@@ -20,5 +20,6 @@ mpd &
 sxhkd &
 dunst &
 
+#exec startxfce4
 exec dwm
 

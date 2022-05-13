@@ -4,6 +4,7 @@ set drawbox true
 set previewer ~/.config/lf/previewer.sh
 set cleaner ~/.config/lf/clear_img.sh
 set hidden true
+set icons
 
 # Custom Functions
 cmd open ${{
@@ -38,6 +39,11 @@ cmd wallpaper ${{
 
 cmd mpv ${{
 	mpv $f --loop-file=yes & disown
+}}
+
+cmd fav ${{
+#	~/Scripts/hf.sh ~/Downloads/rips $f
+	~/Downloads/rips/test/favorites.sh ~/Downloads/rips $f
 }}
 
 map <enter> open

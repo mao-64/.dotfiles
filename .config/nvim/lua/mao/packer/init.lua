@@ -1,4 +1,6 @@
 return require('packer').startup({function()
+	use "/home/mao/test/notes.nvim/"
+
 	use "wbthomason/packer.nvim"
 	use 'neovim/nvim-lspconfig'
 
@@ -10,7 +12,12 @@ return require('packer').startup({function()
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/cmp-nvim-lua'
-	use 'hrsh7th/cmp-nvim-lsp'
+
+	use "uga-rosa/cmp-dictionary"
+
+	use 'L3MON4D3/LuaSnip'
+	use 'saadparwaiz1/cmp_luasnip'
+	use "rafamadriz/friendly-snippets"
 
 	use "onsails/lspkind-nvim"
 
@@ -20,6 +27,7 @@ return require('packer').startup({function()
 
 	use 'mhinz/vim-startify'
 
+	use "morhetz/gruvbox"
 	use 'folke/tokyonight.nvim'
 	use 'ryanoasis/vim-devicons'
 
@@ -44,6 +52,10 @@ return require('packer').startup({function()
 	}
 
 	use { 'nvim-treesitter/playground' }
+
+	use { "L3MON4D3/LuaSnip" }
+--	use { "windwp/nvim-autopairs" }
+
 
 end,
 config = {

@@ -51,6 +51,13 @@ M.conf_files = function()
 	})
 end
 
+M.notes = function()
+	require("telescope.builtin").find_files({
+		prompt_title = "< notes >",
+		cwd = "~/Documents/md//",
+	})
+end
+
 M.anime_bg = function()
 	require("telescope.builtin").find_files({
 		prompt_title = "< BG >",

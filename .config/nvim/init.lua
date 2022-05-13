@@ -8,8 +8,12 @@ vim.o.timeoutlen = 500
 vim.o.wrap = false
 vim.g.smarttab = true
 
---require "mao.colemak"
+P = function(v)
+	print(vim.inspect(v))
+	return v
+end
 
+--require "mao.colemak"
 require "mao.packer"
 
 require "mao.telescope"
@@ -24,22 +28,23 @@ require "mao.keybins"
 
 require "mao.treesitter"
 
-require "mao.testing"
+require "mao.lsp"
 
-require'lspconfig'.tsserver.setup{}
---require'lspconfig'.pyright.setup{}
-
-require'nvim-tree'.setup {}
-
-require'lspconfig'.rust_analyzer.setup{}
-require'lspconfig'.jedi_language_server.setup{}
 
 require'colorizer'.setup()
+
+require"mao.luasnip"
+
+require("cmp_dictionary").setup({
+    dic = {
+        --["*"] = { "~/.config/nvim/dictionary" },
+        ["*"] = { "~/Documents/md_test/words_test.md" },
+    },
+})
 
 vim.cmd [[
 source ~/.config/nvim/plugconfig/which-key.vim
 source ~/.config/nvim/plugconfig/start-screen.vim
-"source ~/.config/nvim/lua/mao/lsp/lsp.vim
 
 set completeopt=menuone,noselect
 
@@ -47,9 +52,9 @@ set shiftwidth=0 noexpandtab
 
 set clipboard+=unnamedplus
 
-set tabstop=5
+set tabstop=3
 
-set dictionary+=~/.config/nvim/dictionary
+"set dictionary+=~/.config/nvim/dictionary
 
 let g:nvim_tree_respect_buf_cwd = 1
 ]]
