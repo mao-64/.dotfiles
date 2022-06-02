@@ -1,0 +1,13 @@
+#!/bin/sh
+xmodmap ~/.config/.Xmodmap &
+xset r rate 200 20 &
+xrdb .config/.Xresources &
+nm-applet &
+picom &
+/usr/bin/lxpolkit &
+mpd &
+sxhkd &
+dunst &
+
+exec awesome
+

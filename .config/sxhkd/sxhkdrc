@@ -60,7 +60,10 @@ super + alt + e
 super + alt + r
 	st -e ranger
 
-################################################################################
+super + s
+	toggleprogram "Scratchpad" "--experimental-backends"
+
+###############################################################################
 
 super + shift + c
 	toggleprogram "picom" "--experimental-backends"
@@ -68,6 +71,8 @@ super + shift + c
 Print
 	flameshot full -p ~/Pictures/
 
+super + shift + s
+	toggleprogram "Scratchpad.sh" "--experimental-backends"
 ################################################################################
 
 #XF86MonBrightnessUp

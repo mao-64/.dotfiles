@@ -47,13 +47,12 @@ cmd fav ${{
 }}
 
 map <enter> open
-#map e down
-#map i up
-#map n updir
-#map o open
+map e
 
 map sw wallpaper
 
 map tp trash
 
 map gc cd ~/.config
+
+source ~/Scripts/bm/bm.lf

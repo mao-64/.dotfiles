@@ -42,6 +42,7 @@ require("cmp_dictionary").setup({
     },
 })
 
+
 vim.cmd [[
 source ~/.config/nvim/plugconfig/which-key.vim
 source ~/.config/nvim/plugconfig/start-screen.vim
