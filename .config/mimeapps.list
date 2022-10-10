@@ -1,6 +1,7 @@
 [Default Applications]
 x-scheme-handler/tg=userapp-Telegram Desktop-GE0YI1.desktop
 image/jpeg=nsxiv.desktop
+image/png=nsxiv.desktop
 image/gif=mpv.desktop
 
 [Added Associations]

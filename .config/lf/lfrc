@@ -1,5 +1,5 @@
 #ize -5et hidden true
-set color256 true
+#set color256 true
 set drawbox true
 set previewer ~/.config/lf/previewer.sh
 set cleaner ~/.config/lf/clear_img.sh
@@ -26,10 +26,6 @@ cmd mkfile %{{
 		  touch $ans
 }}
 
-cmd next ${{
-	cd "$f"
-}}
-
 cmd trash %trash-put $fx
 
 cmd wallpaper ${{
@@ -37,13 +33,19 @@ cmd wallpaper ${{
 }}
 
 
-cmd mpv ${{
-	mpv $f --loop-file=yes & disown
-}}
-
 cmd fav ${{
 #	~/Scripts/hf.sh ~/Downloads/rips $f
 	~/Downloads/rips/test/favorites.sh ~/Downloads/rips $f
+}}
+
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
 }}
 
 map <enter> open

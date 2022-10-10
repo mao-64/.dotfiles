@@ -22,11 +22,18 @@ source ~/.dotfiles/aliasrc
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
+LFCD="/home/mao/.config/lf/lfcd.sh"                                #  pre-built binary, make sure to use absolute path
+if [ -f "$LFCD" ]; then
+    source "$LFCD"
+fi
+
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
+
+bindkey -s '^o' 'lfcd\n'
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
@@ -224,3 +231,10 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
+
+# bun completions
+[ -s "/home/mao/.bun/_bun" ] && source "/home/mao/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

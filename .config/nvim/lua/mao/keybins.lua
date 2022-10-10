@@ -42,4 +42,4 @@ vim.api.nvim_set_keymap("n", "<leader>cc", "<cmd>tabnew<CR>", { noremap = false 
 vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>tabprevious<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>l", "<cmd>tabnext<CR>", { noremap = false })
 
-vim.api.nvim_set_keymap("n", "<C-Tab>", "<cmd>tabnext<CR>", { noremap = false })
+vim.api.nvim_set_keymap("n", "<leader>cs", "<cmd>retab<CR>", { noremap = false })

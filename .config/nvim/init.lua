@@ -55,6 +55,9 @@ set clipboard+=unnamedplus
 
 set tabstop=3
 
+"set expandtab
+set mouse=a
+
 "set dictionary+=~/.config/nvim/dictionary
 
 let g:nvim_tree_respect_buf_cwd = 1

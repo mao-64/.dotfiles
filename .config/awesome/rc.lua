@@ -17,7 +17,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 
---local mao = require("mao")
+local scratch = require("mao.scratch")
+screen_width = awful.screen.focused().geometry.width
+screen_height = awful.screen.focused().geometry.height
 
 require("awful.hotkeys_popup.keys")
 
@@ -190,7 +192,7 @@ awful.screen.connect_for_each_screen(function(s)
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
 
-	 s.mytaglist = awful.widget.taglist {
+    s.mytaglist = awful.widget.taglist {
     screen  = s,
     filter  = awful.widget.taglist.filter.all,
     widget_template = {
@@ -234,8 +236,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-				test,
-				battery,
+            battery,
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
@@ -264,6 +265,12 @@ globalkeys = gears.table.join(
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
+
+    awful.key({ modkey }, "y", function () scratch.toggle("st -n scratch-term -g 120x34",
+              { instance = "scratch-term" }) end),
+    awful.key({ modkey }, "u",
+               function () scratch.toggle("st -n scratch-ncmpcpp -g 144x41 -e ncmpcpp",
+              { instance = "scratch-ncmpcpp" }) end),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -480,6 +487,7 @@ awful.rules.rules = {
           "DTA",  -- Firefox addon DownThemAll.
           "copyq",  -- Includes session name in class.
           "pinentry",
+          "scratch",
         },
         class = {
           "Arandr",
@@ -491,9 +499,8 @@ awful.rules.rules = {
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
-          "xtightvncviewer",
-			 "Scratchpad"
-		 },
+          "xtightvncviewer"
+       },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
@@ -506,6 +513,28 @@ awful.rules.rules = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
       }, properties = { floating = true }},
+      {
+        rule_any = {
+            instance = { "scratch" },
+            class = { "scratch" },
+            icon_name = { "scratchpad_urxvt" },
+        },
+        properties = {
+            skip_taskbar = true,
+            floating = true,
+            ontop = false,
+            minimized = true,
+            sticky = false,
+            width = screen_width * 0.7,
+            height = screen_height * 0.75
+        },
+        callback = function (c)
+            awful.placement.centered(c,{honor_padding = true, honor_workarea=true})
+            gears.timer.delayed_call(function()
+                c.urgent = false
+            end)
+        end
+    },
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }

@@ -1,199 +1,68 @@
-local lspkind = require "lspkind"
-lspkind.init()
+  -- Setup nvim-cmp.
+  local cmp = require'cmp'
 
-local cmp = require "cmp"
-local luasnip = require "luasnip"
-
-cmp.setup {
---	view = {            
---      entries = "custom" -- can be "custom", "wildmenu" or "native"
---   },
-
-
-  mapping = {
-    --["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    --["<C-f>"] = cmp.mapping.scroll_docs(4),
-	["<C-e>"] = cmp.mapping.close(),
-	--["<C-y>"] = cmp.mapping(cmp.mapping.confirm(), { 'i', 'c' }),
---["<c-y>"] = cmp.mapping(
---  cmp.mapping.confirm {
---    behavior = cmp.ConfirmBehavior.Insert,
---    select = true,
---  },
---  { "i", "c" }
---),
-	 ['<CR>'] = cmp.mapping.confirm({ select = true }), 
-
-
---    ["<c-space>"] = cmp.mapping {
---      i = cmp.mapping.complete(),
---      c = function(
---        _ --[[fallback]]
---      )
---        if cmp.visible() then
---          if not cmp.confirm { select = true } then
---            return
---          end
---        else
---          cmp.complete()
---        end
---      end,
---    },
-
-     --["<tab>"] = false,
-	--["<tab>"] = cmp.config.disable,
-
-    -- ["<tab>"] = cmp.mapping {
-    --   i = cmp.config.disable,
-    --   c = function(fallback)
-    --     fallback()
-    --   end,
-    -- },
-
-    -- Testing
---    ["<c-q>"] = cmp.mapping.confirm {
---      behavior = cmp.ConfirmBehavior.Replace,
---      select = true,
---    },
-
-    -- If you want tab completion :'(
-    --  First you have to just promise to read `:help ins-completion`.
-    --
-    -- ["<Tab>"] = function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   else
-    --     fallback()
-    --   end
-    -- end,
-    -- ["<S-Tab>"] = function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_prev_item()
-    --   else
-    --     fallback()
-    --   end
-    -- end,
-  },
-
-  -- Youtube:
-  --    the order of your sources matter (by default). That gives them priority
-  --    you can configure:
-  --        keyword_length
-  --        priority
-  --        max_item_count
-  --        (more?)
-  sources = {
-    --{ name = "gh_issues" },
-
-    -- Youtube: Could enable this only for lua, but nvim_lua handles that already.
-    --{ name = "nvim_lua" },
-
-    { name = "nvim_lsp" },
-    { name = "path" },
-    { name = "luasnip" },
-    { name = "buffer", keyword_length = 1 },
-	 { name = 'dictionary' },
-  },
-
-  sorting = {
-    -- TODO: Would be cool to add stuff like "See variable names before method names" in rust, or something like that.
-    comparators = {
-      cmp.config.compare.offset,
-      cmp.config.compare.exact,
-      cmp.config.compare.score,
-
-      -- copied from cmp-under, but I don't think I need the plugin for this.
-      -- I might add some more of my own.
-      function(entry1, entry2)
-        local _, entry1_under = entry1.completion_item.label:find "^_+"
-        local _, entry2_under = entry2.completion_item.label:find "^_+"
-        entry1_under = entry1_under or 0
-        entry2_under = entry2_under or 0
-        if entry1_under > entry2_under then
-          return false
-        elseif entry1_under < entry2_under then
-          return true
-        end
+  cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       end,
-
-      cmp.config.compare.kind,
-      cmp.config.compare.sort_text,
-      cmp.config.compare.length,
-      cmp.config.compare.order,
     },
-  },
-
-  -- Youtube: mention that you need a separate snippets plugin
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end,
-  },
-
-  formatting = {
-    -- Youtube: How to set up nice formatting for your sources.
-    format = lspkind.cmp_format {
-      with_text = true,
-      menu = {
-        buffer = "[buf]",
-        nvim_lsp = "[LSP]",
-        nvim_lua = "[api]",
-        path = "[path]",
-        luasnip = "[snip]",
-        gh_issues = "[issues]",
-        tn = "[TabNine]",
-      },
+    window = {
+      -- completion = cmp.config.window.bordered(),
+      -- documentation = cmp.config.window.bordered(),
     },
-  },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      --{ name = 'vsnip' }, -- For vsnip users.
+       { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
 
-  experimental = {
-    -- I like the new menu better! Nice work hrsh7th
-    native_menu = false,
+  -- Set configuration for specific filetype.
+  cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    }, {
+      { name = 'buffer' },
+    })
+  })
 
-    -- Let's play with this for a day or two
-    ghost_text = false,
-  },
-}
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
 
---cmp.setup({
---    ...
---    sources = {
---        ...
---        { name = "luasnip" },
---        ...
---    },
---    mapping = {
---        ["<cr>"] = cmp.mapping.confirm(),
---        ["<Tab>"] = cmp.mapping(function(fallback)
---          if cmp.visible() then
---            cmp.select_next_item()
---          elseif luasnip.expand_or_jumpable() then
---            luasnip.expand_or_jump()
---          elseif has_words_before() then
---            cmp.complete()
---          else
---            fallback()
---          end
---        end, { "i", "s" }),
---
---        ["<S-Tab>"] = cmp.mapping(function(fallback)
---          if cmp.visible() then
---            cmp.select_prev_item()
---          elseif luasnip.jumpable(-1) then
---            luasnip.jump(-1)
---          else
---            fallback()
---          end
---        end, { "i", "s" }),
---        },
---    ...
---    snippet = {
---        expand = function(args)
---            local luasnip = prequire("luasnip")
---            if not luasnip then
---                return
---            end
---            luasnip.lsp_expand(args.body)
---        end,
---    },
---})
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
+  -- Setup lspconfig.
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+  require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
+    capabilities = capabilities
+  }

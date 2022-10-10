@@ -16,7 +16,7 @@ require('telescope').setup {
 	      previewer = false,
 	    },
     find_files = {
-      theme = "ivy"
+      --theme = "ivy"
     },
     help_tags = {
       theme = "ivy"
