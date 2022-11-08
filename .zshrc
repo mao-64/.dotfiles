@@ -1,5 +1,20 @@
+setopt interactive_comments
+
+git_prompt() {
+    local branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)"
+    local branch_truncated="${branch:0:30}"
+    if (( ${#branch} > ${#branch_truncated} )); then
+        branch="${branch_truncated}..."
+    fi
+
+    [ -n "${branch}" ] && echo " (${branch})"
+}
+
 autoload -U colors && colors
-PROMPT="%{$fg[blue]%}[%n@%M%~]$ "
+#PROMPT="%{$fg[blue]%}[%n@%M%~]$ "
+#PROMPT="%{$fg[blue]%}[%n@%M%~]$(git_prompt)$ "
+setopt PROMPT_SUBST
+PROMPT='%B%{$fg[blue]%}[%n@%M %{$fg[white]%}%~%{$fg[blue]%}]%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.$.%{$fg[red]%}$)%b '
 
 HISTSIZE=10000
 SAVEHIST=10000
@@ -238,3 +253,5 @@ ex=:\
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+eval "$(zoxide init zsh)"

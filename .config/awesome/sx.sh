@@ -2,8 +2,8 @@
 
 
 xmodmap ~/.config/.Xmodmap &
+xrdb ~/.config/.Xresources &
 xset r rate 200 20 &
-xrdb .config/.Xresources &
 nm-applet &
 picom &
 /usr/bin/lxpolkit &
@@ -13,8 +13,8 @@ dunst &
 flameshot &
 udiskie &
 
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
-exec awesome # awesomewm
+#xrandr --setprovideroutputsource modesetting NVIDIA-0
+#xrandr --auto
+#exec awesome # awesomewm
 #exec gnome-session
 

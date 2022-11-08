@@ -30,17 +30,18 @@ require "mao.treesitter"
 
 require "mao.lsp"
 
+require "mao.nvimtree"
 
 require'colorizer'.setup()
 
 require"mao.luasnip"
 
-require("cmp_dictionary").setup({
-    dic = {
-        --["*"] = { "~/.config/nvim/dictionary" },
-        ["*"] = { "~/Documents/md_test/words_test.md" },
-    },
-})
+--require("cmp_dictionary").setup({
+--    dic = {
+--        --["*"] = { "~/.config/nvim/dictionary" },
+--        ["*"] = { "~/Documents/md_test/words_test.md" },
+--    },
+--})
 
 
 vim.cmd [[

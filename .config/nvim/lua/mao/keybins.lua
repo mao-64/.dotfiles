@@ -25,6 +25,7 @@ vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeToggle<CR>", { noremap = fal
 vim.api.nvim_set_keymap("n", "<leader>fv", "<cmd>lua require'mao.telescope'.nvim_files()<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>fc", "<cmd>lua require'mao.telescope'.conf_files()<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>fn", "<cmd>lua require'mao.telescope'.notes()<CR>", { noremap = false })
+vim.api.nvim_set_keymap("n", "<leader>fp", "<cmd>lua require'mao.telescope'.project_files()<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope find_files<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope git_files<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = false })

@@ -48,6 +48,16 @@ cmd unarchive ${{
   esac
 }}
 
+cmd z %{{
+    result="$(zoxide query --exclude "${PWD}" -- "$@")"
+    lf -remote "send ${id} cd '${result}'"
+}}
+
+cmd zi ${{
+    result="$(zoxide query -i -- "$@")"
+    lf -remote "send ${id} cd '${result}'"
+}}
+
 map <enter> open
 map e
 
@@ -56,5 +66,7 @@ map sw wallpaper
 map tp trash
 
 map gc cd ~/.config
+map gu cd /run/media/mao
+map gh cd /home/mao
 
 source ~/Scripts/bm/bm.lf
