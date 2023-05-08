@@ -7,11 +7,13 @@ xset r rate 200 20 &
 nm-applet &
 picom &
 /usr/bin/lxpolkit &
+/usr/lib/kdeconnectd &
 mpd &
 sxhkd &
-dunst &
+#dunst &
 flameshot &
 udiskie &
+~/.fehbg &
 
 #xrandr --setprovideroutputsource modesetting NVIDIA-0
 #xrandr --auto

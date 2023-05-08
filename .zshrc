@@ -14,7 +14,7 @@ autoload -U colors && colors
 #PROMPT="%{$fg[blue]%}[%n@%M%~]$ "
 #PROMPT="%{$fg[blue]%}[%n@%M%~]$(git_prompt)$ "
 setopt PROMPT_SUBST
-PROMPT='%B%{$fg[blue]%}[%n@%M %{$fg[white]%}%~%{$fg[blue]%}]%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.$.%{$fg[red]%}$)%b '
+PROMPT='%B%{$fg[magenta]%}[%n@%M %{$fg[white]%}%~%{$fg[magenta]%}]%{$fg[yellow]%}$(git_prompt)%{$reset_color%} %(?.$.%{$fg[red]%}$)%b '
 
 HISTSIZE=10000
 SAVEHIST=10000

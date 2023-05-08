@@ -31,6 +31,11 @@ cmp.setup({
   }, {
     { name = 'path' },
     { name = 'buffer' },
+	 {
+                name = "dictionary",
+                keyword_length = 2,
+                priority = 1,
+            },
   })
 })
 

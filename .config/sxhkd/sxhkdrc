@@ -1,5 +1,6 @@
 super + Return
-	st
+	alacritty
+#	st
 
 super + b
 	brave
@@ -73,6 +74,9 @@ Print
 
 super + shift + s
 	toggleprogram "Scratchpad.sh" "--experimental-backends"
+
+super + shift + f
+	~/.fehbg
 ################################################################################
 
 #XF86MonBrightnessUp

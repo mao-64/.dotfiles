@@ -21,6 +21,13 @@ local scratch = require("mao.scratch")
 screen_width = awful.screen.focused().geometry.width
 screen_height = awful.screen.focused().geometry.height
 
+
+
+
+
+
+
+
 require("awful.hotkeys_popup.keys")
 
 -- {{{ Error handling
@@ -159,24 +166,24 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
-local function set_wallpaper(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end
+--local function set_wallpaper(s)
+--    -- Wallpaper
+--    if beautiful.wallpaper then
+--        local wallpaper = beautiful.wallpaper
+--        -- If wallpaper is a function, call it with the screen
+--        if type(wallpaper) == "function" then
+--            wallpaper = wallpaper(s)
+--        end
+--        gears.wallpaper.maximized(wallpaper, s, true)
+--    end
+--end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", set_wallpaper)
+--screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
-    set_wallpaper(s)
+--    set_wallpaper(s)
 
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
@@ -259,6 +266,16 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
+ awful.key({ modkey, "Shift"}, "b", function ()
+             for s in screen do
+                 s.mywibox.visible = not s.mywibox.visible
+                 if s.mybottomwibox then
+                     s.mybottomwibox.visible = not s.mybottomwibox.visible
+                 end
+            end
+         end,
+         {description = "toggle wibox", group = "awesome"}),
+
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
@@ -332,17 +349,18 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
-    awful.key({ modkey, "Control" }, "n",
-              function ()
-                  local c = awful.client.restore()
-                  -- Focus restored client
-                  if c then
-                    c:emit_signal(
-                        "request::activate", "key.unminimize", {raise = true}
-                    )
-                  end
-              end,
-              {description = "restore minimized", group = "client"}),
+
+--    awful.key({ modkey, "Control" }, "n",
+--              function ()
+--                  local c = awful.client.restore()
+--                  -- Focus restored client
+--                  if c then
+--                    c:emit_signal(
+--                        "request::activate", "key.unminimize", {raise = true}
+--                    )
+--                  end
+--              end,
+--              {description = "restore minimized", group = "client"}),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
@@ -369,32 +387,32 @@ clientkeys = gears.table.join(
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-              {description = "toggle keep on top", group = "client"}),
-    awful.key({ modkey,           }, "n",
-        function (c)
-            -- The client currently has the input focus, so it cannot be
-            -- minimized, since minimized clients can't have the focus.
-            c.minimized = true
-        end ,
-        {description = "minimize", group = "client"}),
-    awful.key({ modkey,           }, "m",
-        function (c)
-            c.maximized = not c.maximized
-            c:raise()
-        end ,
-        {description = "(un)maximize", group = "client"}),
-    awful.key({ modkey, "Control" }, "m",
-        function (c)
-            c.maximized_vertical = not c.maximized_vertical
-            c:raise()
-        end ,
-        {description = "(un)maximize vertically", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "m",
-        function (c)
-            c.maximized_horizontal = not c.maximized_horizontal
-            c:raise()
-        end ,
-        {description = "(un)maximize horizontally", group = "client"})
+              {description = "toggle keep on top", group = "client"})
+--    awful.key({ modkey,           }, "n",
+--        function (c)
+--            -- The client currently has the input focus, so it cannot be
+--            -- minimized, since minimized clients can't have the focus.
+--            c.minimized = true
+--        end ,
+--        {description = "minimize", group = "client"}),
+--    awful.key({ modkey,           }, "m",
+--        function (c)
+--            c.maximized = not c.maximized
+--            c:raise()
+--        end ,
+--        {description = "(un)maximize", group = "client"}),
+--    awful.key({ modkey, "Control" }, "m",
+--        function (c)
+--            c.maximized_vertical = not c.maximized_vertical
+--            c:raise()
+--        end ,
+--        {description = "(un)maximize vertically", group = "client"}),
+--    awful.key({ modkey, "Shift"   }, "m",
+--        function (c)
+--            c.maximized_horizontal = not c.maximized_horizontal
+--            c:raise()
+--        end ,
+--        {description = "(un)maximize horizontally", group = "client"})
 )
 
 -- Bind all key numbers to tags.
@@ -490,7 +508,7 @@ awful.rules.rules = {
           "scratch",
         },
         class = {
-          "Arandr",
+          --"Arandr",
           "Blueman-manager",
           "Gpick",
           "Kruler",
@@ -607,8 +625,20 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
+client.connect_signal("property::floating", function(c)
+    if c.floating then
+        awful.titlebar.show(c)
+    else
+        awful.titlebar.hide(c)
+    end
+end)
+
+
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 awful.spawn.with_shell("~/.config/awesome/sx.sh")
 -- }}}
+
+
+

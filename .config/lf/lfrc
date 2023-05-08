@@ -68,5 +68,7 @@ map tp trash
 map gc cd ~/.config
 map gu cd /run/media/mao
 map gh cd /home/mao
+map gp cd /home/mao/Pictures/
+map gdt cd /home/mao/Desktop/
 
 source ~/Scripts/bm/bm.lf

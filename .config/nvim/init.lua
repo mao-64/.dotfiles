@@ -36,16 +36,16 @@ require'colorizer'.setup()
 
 require"mao.luasnip"
 
---require("cmp_dictionary").setup({
---    dic = {
---        --["*"] = { "~/.config/nvim/dictionary" },
---        ["*"] = { "~/Documents/md_test/words_test.md" },
---    },
---})
+require("cmp_dictionary").setup({
+    dic = {
+        ["*"] = { "~/.config/nvim/dictionary" },
+        --["*"] = { "~/Documents/md_test/words_test.md" },
+    },
+})
 
 
 vim.cmd [[
-source ~/.config/nvim/plugconfig/which-key.vim
+"source ~/.config/nvim/plugconfig/which-key.vim
 source ~/.config/nvim/plugconfig/start-screen.vim
 
 set completeopt=menuone,noselect

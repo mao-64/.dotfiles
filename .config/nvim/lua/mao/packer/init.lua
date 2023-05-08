@@ -23,7 +23,21 @@ return require('packer').startup({function()
 
 	use 'tpope/vim-surround'
 
-	use 'liuchengxu/vim-which-key'
+	--use 'liuchengxu/vim-which-key'
+	-- Lua
+	--use "folke/which-key.nvim"
+	use {
+  "folke/which-key.nvim",
+  config = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+    require("which-key").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+}
 
 	use 'mhinz/vim-startify'
 
@@ -53,12 +67,12 @@ return require('packer').startup({function()
 
 	use { 'nvim-treesitter/playground' }
 
-	--use { "L3MON4D3/LuaSnip" }
 --	use { "windwp/nvim-autopairs" }
 
 	use { 'tpope/vim-fugitive' }
 
-
+	use 'Mofiqul/dracula.nvim'
+	use { "catppuccin/nvim", as = "catppuccin" }
 
 end,
 config = {

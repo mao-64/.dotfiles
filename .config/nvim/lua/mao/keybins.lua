@@ -6,8 +6,8 @@ nnoremap <A-j> :m .+1<CR>==
 vnoremap <A-k> :m '<-2<CR>gv=gv
 vnoremap <A-j> :m '>+1<CR>gv=gv
 
-nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
-vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+"nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
+"vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 ]]
 
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = false })
@@ -20,7 +20,8 @@ vim.api.nvim_set_keymap("n", "<C-Right>",	":vertical resize -5<CR>", { noremap =
 vim.api.nvim_set_keymap("n", "<C-UP>",		"resize +5<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<C-Down>",	"resize -5<CR>", { noremap = false })
 
-vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeToggle<CR>", { noremap = false })
+vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeFocus<CR>", { noremap = false })
+vim.api.nvim_set_keymap("n", "<leader>cn", ":NvimTreeToggle<CR>", { noremap = false })
 
 vim.api.nvim_set_keymap("n", "<leader>fv", "<cmd>lua require'mao.telescope'.nvim_files()<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>fc", "<cmd>lua require'mao.telescope'.conf_files()<CR>", { noremap = false })
