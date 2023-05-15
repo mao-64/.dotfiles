@@ -45,3 +45,7 @@ vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>tabprevious<CR>", { noremap = fa
 vim.api.nvim_set_keymap("n", "<leader>l", "<cmd>tabnext<CR>", { noremap = false })
 
 vim.api.nvim_set_keymap("n", "<leader>cs", "<cmd>retab<CR>", { noremap = false })
+
+
+vim.api.nvim_set_keymap("n", "<leader>wv", "<cmd>vsplit<CR>", { noremap = false })
+vim.api.nvim_set_keymap("n", "<leader>wh", "<cmd>split<CR>", { noremap = false })

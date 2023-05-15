@@ -14,7 +14,8 @@ P = function(v)
 end
 
 --require "mao.colemak"
-require "mao.packer"
+--require "mao.packer"
+require "mao.plugins"
 
 require "mao.telescope"
 
@@ -36,6 +37,10 @@ require'colorizer'.setup()
 
 require"mao.luasnip"
 
+require"mao.dashboard"
+
+require"mao.which-key"
+
 require("cmp_dictionary").setup({
     dic = {
         ["*"] = { "~/.config/nvim/dictionary" },
@@ -45,8 +50,7 @@ require("cmp_dictionary").setup({
 
 
 vim.cmd [[
-"source ~/.config/nvim/plugconfig/which-key.vim
-source ~/.config/nvim/plugconfig/start-screen.vim
+"source ~/.config/nvim/plugconfig/start-screen.vim
 
 set completeopt=menuone,noselect
 

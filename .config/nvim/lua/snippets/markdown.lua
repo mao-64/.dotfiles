@@ -9,6 +9,7 @@ local d = ls.dynamic_node
 
 return {
 		s("ml", fmt("[[{}.md]]{}", { i(1), i(0) })),
+
 		s("date", {
 		f(function() return os.date("%Y-%m-%d") end),
 		t(": "),

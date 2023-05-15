@@ -13,4 +13,8 @@ set termguicolors
 "au ColorScheme * hi Normal ctermbg=none guibg=none
 "au ColorScheme * hi NormalNC ctermbg=none guibg=none
 "au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none
+
+hi NvimTreeNormal ctermbg=none guibg=none
+hi NormalNC ctermbg=none guibg=none
+hi normal ctermbg=none guibg=none
 ]]

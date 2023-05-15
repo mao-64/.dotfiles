@@ -39,11 +39,11 @@ return require('packer').startup({function()
   end
 }
 
-	use 'mhinz/vim-startify'
+	--use 'mhinz/vim-startify'
 
 	use "morhetz/gruvbox"
 	use 'folke/tokyonight.nvim'
-	use 'ryanoasis/vim-devicons'
+	--use 'ryanoasis/vim-devicons'
 
 	use 'nvim-lua/popup.nvim'
 	use 'nvim-lua/plenary.nvim'
@@ -73,6 +73,19 @@ return require('packer').startup({function()
 
 	use 'Mofiqul/dracula.nvim'
 	use { "catppuccin/nvim", as = "catppuccin" }
+
+	use 'glepnir/dashboard-nvim'
+--	use {
+--  'glepnir/dashboard-nvim',
+--  event = 'VimEnter',
+--  config = function()
+--    require('dashboard').setup {
+--	theme = 'doom' --  theme is doom and hyper default is hyper
+--      -- config
+--    }
+--  end,
+--  requires = {'nvim-tree/nvim-web-devicons'}
+--}
 
 end,
 config = {
