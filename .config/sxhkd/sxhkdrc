@@ -1,5 +1,6 @@
 super + Return
-	alacritty
+	kitty
+#	alacritty
 #	st
 
 super + b

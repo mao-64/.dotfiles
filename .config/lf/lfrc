@@ -1,10 +1,17 @@
 #ize -5et hidden true
 #set color256 true
 set drawbox true
-set previewer ~/.config/lf/previewer.sh
-set cleaner ~/.config/lf/clear_img.sh
+
+#set previewer ~/.config/lf/previewer.sh
+#set cleaner ~/.config/lf/clear_img.sh
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
+
 set hidden true
 set icons
+
+set number true
+set relativenumber true
 
 # Custom Functions
 cmd open ${{
@@ -29,7 +36,8 @@ cmd mkfile %{{
 cmd trash %trash-put $fx
 
 cmd wallpaper ${{
-	feh --bg-scale $f
+#	feh --bg-scale $f
+	swaybg -i $f & disown
 }}
 
 
@@ -71,4 +79,4 @@ map gh cd /home/mao
 map gp cd /home/mao/Pictures/
 map gdt cd /home/mao/Desktop/
 
-source ~/Scripts/bm/bm.lf
+#source ~/Scripts/bm/bm.lf

@@ -15,6 +15,9 @@ vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = false })
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = false })
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = false })
 
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = false })
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = false })
+
 vim.api.nvim_set_keymap("n", "<C-Left>",	":vertical resize +5<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<C-Right>",	":vertical resize -5<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<C-UP>",		"resize +5<CR>", { noremap = false })
@@ -30,6 +33,7 @@ vim.api.nvim_set_keymap("n", "<leader>fp", "<cmd>lua require'mao.telescope'.proj
 vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope find_files<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope git_files<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = false })
+vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope neoclip star<CR>", { noremap = false })
 
 vim.api.nvim_set_keymap("n", "<leader>tt", ":terminal<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>tn", ":vsplit<CR>:terminal<CR>", { noremap = false })
@@ -49,3 +53,5 @@ vim.api.nvim_set_keymap("n", "<leader>cs", "<cmd>retab<CR>", { noremap = false }
 
 vim.api.nvim_set_keymap("n", "<leader>wv", "<cmd>vsplit<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>wh", "<cmd>split<CR>", { noremap = false })
+
+vim.keymap.set("n", "<leader>-", require("oil").open, { desc = "Open parent directory" })

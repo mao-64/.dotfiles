@@ -39,6 +39,11 @@ local plugins = {
 	"Mofiqul/dracula.nvim",
 	"tpope/vim-fugitive",
 	"nvim-treesitter/playground",
+	"ThePrimeagen/vim-be-good",
+	"stevearc/oil.nvim",
+	"jvgrootveld/telescope-zoxide",
+	"AckslD/nvim-neoclip.lua",
+	"kkharji/sqlite.lua",
 	{ "catppuccin/nvim", as = "catppuccin" },
 	{'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 	{
@@ -54,11 +59,17 @@ local plugins = {
 		 "folke/which-key.nvim",
 		 config = function()
 			 vim.o.timeout = true
-			 vim.o.timeoutlen = 300
+			 vim.o.timeoutlen = 2000
 			 require("which-key").setup {
 			 }
 		 end
-	}
+	},
+--	{
+--	  'stevearc/oil.nvim',
+--	  opts = {},
+--	  -- Optional dependencies
+--	  dependencies = "nvim-tree/nvim-web-devicons",
+--	}
 }
 
 local opts = {}

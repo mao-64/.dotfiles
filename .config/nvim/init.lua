@@ -7,6 +7,8 @@ vim.wo.cursorcolumn = true
 vim.o.timeoutlen = 500
 vim.o.wrap = false
 vim.g.smarttab = true
+vim.o.scrolloff = 8
+
 
 P = function(v)
 	print(vim.inspect(v))
@@ -16,6 +18,8 @@ end
 --require "mao.colemak"
 --require "mao.packer"
 require "mao.plugins"
+
+
 
 require "mao.telescope"
 
@@ -41,13 +45,16 @@ require"mao.dashboard"
 
 require"mao.which-key"
 
+require"mao.oil"
+
+require"mao.neoclip"
+
 require("cmp_dictionary").setup({
     dic = {
         ["*"] = { "~/.config/nvim/dictionary" },
         --["*"] = { "~/Documents/md_test/words_test.md" },
     },
 })
-
 
 vim.cmd [[
 "source ~/.config/nvim/plugconfig/start-screen.vim
