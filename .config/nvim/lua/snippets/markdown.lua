@@ -8,12 +8,15 @@ local f = ls.function_node
 local d = ls.dynamic_node
 
 return {
-		s("ml", fmt("[[{}.md]]{}", { i(1), i(0) })),
+	s("ml", fmt("[[{}.md]]{}", { i(1), i(0) })),
 
-		s("date", {
-		f(function() return os.date("%Y-%m-%d") end),
-		t(": "),
-		i(1, "pp poo poo"),
-		t("-lb"),
-		i(0)}),
+	s("date", {
+	f(function() return os.date("%Y-%m-%d") end),
+	t(": "),
+	i(1, "pp poo poo"),
+	t("-lb"),
+	i(0)}),
+
+	s("ma", fmt("#\n*\n{}",{ i(0) })),
 }
+

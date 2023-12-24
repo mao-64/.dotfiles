@@ -1,4 +1,5 @@
 --local z_utils = require("telescope._extensions.zoxide.utils")
+local actions = require "telescope.actions"
 require("os")
 require('telescope').setup {
 	defaults = {
@@ -37,6 +38,11 @@ require('telescope').setup {
 	pickers = {
 	    -- Your special builtin config goes in here
 	    buffers = {
+			 mappings = {
+        i = {
+          ["<c-e>"] = actions.file_edit()
+        }
+      },
 	      sort_lastused = true,
 	      theme = "ivy",
 	      previewer = false,
@@ -45,7 +51,7 @@ require('telescope').setup {
       --theme = "ivy"
     },
     help_tags = {
-      theme = "ivy"
+      --theme = "ivy"
     }
   },
 	extensions = {
@@ -70,6 +76,7 @@ require('telescope').setup {
   color_devicons = true,
 }
 require('telescope').load_extension('fzf')
+require("telescope").load_extension("emoji")
 
 local M = {}
 M.nvim_files = function()
@@ -121,6 +128,7 @@ M.anime_bg = function()
 	end	
 	})
 end
+
 
 M.project_files = function()
   local opts = {

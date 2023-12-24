@@ -44,6 +44,8 @@ local plugins = {
 	"jvgrootveld/telescope-zoxide",
 	"AckslD/nvim-neoclip.lua",
 	"kkharji/sqlite.lua",
+	"xiyaowong/telescope-emoji.nvim",
+	--"startup-nvim/startup.nvim",
 	{ "catppuccin/nvim", as = "catppuccin" },
 	{'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 	{

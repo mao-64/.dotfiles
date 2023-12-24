@@ -42,6 +42,7 @@ require'colorizer'.setup()
 require"mao.luasnip"
 
 require"mao.dashboard"
+--require"mao.startup"
 
 require"mao.which-key"
 
