@@ -1,5 +1,5 @@
 --local z_utils = require("telescope._extensions.zoxide.utils")
-local actions = require "telescope.actions"
+--local actions = require "telescope.actions"
 require("os")
 require('telescope').setup {
 	defaults = {
@@ -35,25 +35,25 @@ require('telescope').setup {
 --			themes.get_ivy,
 		}
 	},
-	pickers = {
-	    -- Your special builtin config goes in here
-	    buffers = {
-			 mappings = {
-        i = {
-          ["<c-e>"] = actions.file_edit()
-        }
-      },
-	      sort_lastused = true,
-	      theme = "ivy",
-	      previewer = false,
-	    },
-    find_files = {
-      --theme = "ivy"
-    },
-    help_tags = {
-      --theme = "ivy"
-    }
-  },
+--	pickers = {
+--	    -- Your special builtin config goes in here
+--	    buffers = {
+--			 mappings = {
+--        i = {
+--          ["<c-e>"] = actions.file_edit()
+--        }
+--      },
+--	      sort_lastused = true,
+--	      theme = "ivy",
+--	      previewer = false,
+--	    },
+--    find_files = {
+--      --theme = "ivy"
+--    },
+--    help_tags = {
+--      --theme = "ivy"
+--    }
+--  },
 	extensions = {
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
