@@ -31,7 +31,7 @@ require "mao.colors"
 
 require "mao.keybins"
 
-require "mao.treesitter"
+--require "mao.treesitter"
 
 require "mao.lsp"
 
@@ -39,12 +39,12 @@ require "mao.nvimtree"
 
 require'colorizer'.setup()
 
-require"mao.luasnip"
+--require"mao.luasnip"
 
 require"mao.dashboard"
 --require"mao.startup"
 
-require"mao.which-key"
+--require"mao.which-key"
 
 require"mao.oil"
 

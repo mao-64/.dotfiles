@@ -22,7 +22,7 @@ local plugins = {
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/cmp-nvim-lua",
 	"uga-rosa/cmp-dictionary",
-	"L3MON4D3/LuaSnip",
+--	"L3MON4D3/LuaSnip",
 	"saadparwaiz1/cmp_luasnip",
 	"rafamadriz/friendly-snippets",
 	"onsails/lspkind-nvim",
@@ -30,15 +30,15 @@ local plugins = {
 	"morhetz/gruvbox",
 	"folke/tokyonight.nvim",
 	"nvim-lua/popup.nvim",
-	"nvim-lua/plenary.nvim",
-	"nvim-telescope/telescope.nvim",
+--	"nvim-lua/plenary.nvim",
+--	"nvim-telescope/telescope.nvim",
 	"hoob3rt/lualine.nvim",
 	"kyazdani42/nvim-web-devicons",
 	"markonm/traces.vim",
 	"glepnir/dashboard-nvim",
 	"Mofiqul/dracula.nvim",
 	"tpope/vim-fugitive",
-	"nvim-treesitter/playground",
+--	"nvim-treesitter/playground",
 	"ThePrimeagen/vim-be-good",
 	"stevearc/oil.nvim",
 	"jvgrootveld/telescope-zoxide",
@@ -53,19 +53,26 @@ local plugins = {
 	    dependencies = 'kyazdani42/nvim-web-devicons',
 	    config = function() require'nvim-tree'.setup {} end
 	},
-	{
-	    'nvim-treesitter/nvim-treesitter',
-	    run = ':TSUpdate'
-	},
-	{
-		 "folke/which-key.nvim",
-		 config = function()
-			 vim.o.timeout = true
-			 vim.o.timeoutlen = 2000
-			 require("which-key").setup {
-			 }
-		 end
-	},
+	--{
+	--    'nvim-treesitter/nvim-treesitter',
+	--    run = ':TSUpdate'
+	--},
+--	{
+--		 "folke/which-key.nvim",
+--		 config = function()
+--			 vim.o.timeout = true
+--			 vim.o.timeoutlen = 2000
+--			 require("which-key").setup {
+--			 }
+--		 end
+--	},
+	-- init.lua:
+    {
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+-- or                              , branch = '0.1.x',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+
 --	{
 --	  'stevearc/oil.nvim',
 --	  opts = {},

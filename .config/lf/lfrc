@@ -2,16 +2,22 @@
 #set color256 true
 set drawbox true
 
-#set previewer ~/.config/lf/previewer.sh
-#set cleaner ~/.config/lf/clear_img.sh
-set previewer ~/.config/lf/lf_kitty_preview
-set cleaner ~/.config/lf/lf_kitty_clean
+set previewer ~/.config/lf/previewer.sh
+set cleaner ~/.config/lf/cleaner.sh
+#set previewer ~/.config/lf/lf_kitty_preview
+#set cleaner ~/.config/lf/lf_kitty_clean
 
 set hidden true
 set icons
 
 set number true
 set relativenumber true
+
+cmd ow ${{
+	printf "open with: "
+	read app
+	$app $f
+}}
 
 # Custom Functions
 cmd open ${{
@@ -73,10 +79,13 @@ map sw wallpaper
 
 map tp trash
 
+map zi zi
+
 map gc cd ~/.config
 map gu cd /run/media/mao
 map gh cd /home/mao
 map gp cd /home/mao/Pictures/
 map gdt cd /home/mao/Desktop/
+map gv cd /home/mao/Videos
 
 #source ~/Scripts/bm/bm.lf
