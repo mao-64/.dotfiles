@@ -9,7 +9,7 @@
  */
 
 * {
-	border-radius: 6;
+	border-radius: 6px;
 	/*font-family: JetBrains Mono;*/
 	font-family: Source Code Pro;
 	font-size: 16px;
@@ -34,7 +34,7 @@ window#waybar.hidden {
 }
 
 #window {
-	border-radius: 10;
+	border-radius: 10px;
 	transition: none;
 	/*
     color: transparent;
@@ -61,8 +61,8 @@ window#waybar.PCSX2 #window {
 #workspaces {
 	margin-top: 0px;
 	margin-left: 0px;
-	margin-bottom: 0;
-	border-radius: 10;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	/*background: #bd93f9;*/
 	transition: none;
 	color: #bd93f9;
@@ -90,11 +90,10 @@ window#waybar.PCSX2 #window {
 	margin-top: 0px;
 	margin-left: 8px;
 	margin-bottom: 0;
-	border-radius: 10;
+	border-radius: 10px;
 	background: #282a36;
 	transition: none;
 	color: #4d4d4d;
-	background: #5af78e;
 }
 
 #mpd.disconnected,
@@ -107,58 +106,63 @@ window#waybar.PCSX2 #window {
 	margin-top: 0px;
 	margin-left: 8px;
 	margin-bottom: 0;
-	border-radius: 10;
+	border-radius: 10px;
 	transition: none;
-	color: #4d4d4d;
-	background: #bd93f9;
+	color: #bd93f9;
 }
 
 #pulseaudio {
 	margin-top: 0px;
 	margin-left: 8px;
 	margin-bottom: 0;
-	border-radius: 10;
+	border-radius: 10px;
 	transition: none;
-	color: #4d4d4d;
-	background: #9aedfe;
+	color: #bd93f9;
 }
 
 #temperature {
 	margin-top: 0px;
 	margin-left: 8px;
 	margin-bottom: 0;
-	border-radius: 10;
+	border-radius: 10px;
 	transition: none;
-	color: #4d4d4d;
-	background: #5af78e;
+	color: #bd93f9;
 }
 
 #cpu {
 	margin-top: 0px;
 	margin-left: 8px;
-	margin-bottom: 0;
-	border-radius: 10;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: #4d4d4d;
-	background: #f1fa8c;
+	color: #bd93f9;
 }
 
 #memory {
 	margin-top: 0px;
 	margin-left: 8px;
-	margin-bottom: 0;
-	border-radius: 10;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	transition: none;
-	color: #4d4d4d;
-	background: #ff6e67;
+	color: #bd93f9;
 }
 
 #clock {
 	margin-top: 0px;
 	margin-left: 8px;
 	margin-right: 12px;
-	margin-bottom: 0;
-	border-radius: 10;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+	color: #bd93f9;
+}
+
+#battery {
+	margin-top: 0px;
+	margin-left: 8px;
+	margin-right: 12px;
+	margin-bottom: 0px;
+	border-radius: 10px;
 	transition: none;
 	color: #bd93f9;
 }

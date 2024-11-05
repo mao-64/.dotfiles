@@ -1,0 +1,39 @@
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 35, // Waybar height (to be removed for auto height)
+    //"width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+	"margin-top": 10,
+	"margin-left": 10,
+	"margin-right": 10,
+
+	"modules-left": ["wlr/workspaces", "custom/media"],
+	"modules-center": ["clock"],
+	//"modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery", "tray"],
+	"modules-right": ["pulseaudio", "memory", "cpu", "tray"],
+	 "wlr/workspaces": {
+	"format": "{icon}",
+	"on-click": "activate",
+	"sort-by": true,
+	"format": "{name}:{icon}",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "",
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
+	 "memory": {
+        "format": " {}%"
+    },
+	   "cpu": {
+        "format": " {usage}%",
+//        "tooltip": false
+    }
+}
