@@ -9,16 +9,21 @@
 	"margin-left": 10,
 	"margin-right": 10,
 
-	"modules-left": ["wlr/workspaces", "custom/media"],
-//	"modules-left": ["hyprland/workspaces", "custom/media"],
+//	"modules-left": ["wlr/workspaces", "custom/media"],
+	"modules-left": ["hyprland/workspaces", "custom/dtg"],
 	"modules-center": ["clock"],
 	"modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery", "tray"],
-	"wlr/workspaces": {
-	//"hyprland/workspaces": {
+
+	"custom/dtg": {
+	"exec": "echo \"| $(date -u +%d%H%M%S)Z$(date -u +%m%Y)\"",
+	"restart-interval": 1
+	},
+//	"wlr/workspaces": {
+	"hyprland/workspaces": {
 	"format": "{icon}",
 	"on-click": "activate",
-	"on-scroll-up": "hyprctl dispatch workspace e+1",
-	"on-scroll-down": "hyprctl dispatch workspace e-1",
+	"on-scroll-up": "hyprctl dispatch split-workspace e+1",
+	"on-scroll-down": "hyprctl dispatch split-workspace e-1",
 	"sort-by": true,
 	"format": "{name}:{icon}",
 		"format-icons": {

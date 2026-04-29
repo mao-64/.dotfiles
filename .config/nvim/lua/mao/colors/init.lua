@@ -1,5 +1,5 @@
 vim.wo.colorcolumn = "80,100"
-vim.g.tokyonight_style = "night"
+--vim.g.tokyonight_style = "night"
 --vim.g.tokyonight_style = "storm"
 --vim.g.tokyonight_style = "moon"
 
@@ -7,6 +7,7 @@ vim.cmd [[
 let g:solarized_termcolors=256
 "colorscheme tokyonight
 colorscheme tokyonight-storm
+"colorscheme gruvbox
 set termguicolors
 
 "highlight link CompeDocumentation NormalFloat

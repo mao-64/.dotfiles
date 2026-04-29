@@ -74,6 +74,11 @@ export PATH=$PATH:~/apps/testing
 
 export EDITOR="nvim"
 
+#export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=qt6ct
+
+export GTK_THEME=Adwaita:dark
+
 # Created by `pipx` on 2021-04-10 21:20:11
 export PATH="$PATH:/home/mao/.local/bin"
 
@@ -86,6 +91,7 @@ bindkey '^e' edit-command-line
 
 #export MANPAGER="nvim -c 'set ft=man' -"
 #export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+export MANPAGER="nvim +Man\!"
 
 export LF_ICONS="\
 tw=:\
@@ -273,4 +279,15 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/mao/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/mao/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/mao/.lmstudio/bin"
+# End of LM Studio CLI section
 

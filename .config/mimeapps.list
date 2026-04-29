@@ -3,6 +3,21 @@ x-scheme-handler/tg=userapp-Telegram Desktop-GE0YI1.desktop
 image/jpeg=nsxiv.desktop
 image/png=nsxiv.desktop
 image/gif=mpv.desktop
+video/webm=vlc.desktop
+audio/flac=mpv.desktop
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
+text/plain=org.gnome.gedit.desktop
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-GE0YI1.desktop;
+video/webm=mpv.desktop;vlc.desktop;
+audio/flac=mpv.desktop;
+video/mp4=vlc.desktop;mpv.desktop;
+video/x-matroska=mpv.desktop;
+application/epub+zip=libreoffice-writer.desktop;libreoffice-startcenter.desktop;brave-browser.desktop;
+image/png=localsend.desktop;
+text/plain=org.gnome.gedit.desktop;
+video/quicktime=mpv.desktop;
+image/x-olympus-orf=RapidRAW.desktop;org.darktable.darktable.desktop;

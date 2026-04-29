@@ -10,6 +10,7 @@ require('lualine').setup {
   options = {
     -- ... your lualine config
     theme = 'tokyonight'
+    --theme = 'gruvbox'
     -- ... your lualine config
   }
 }

@@ -42,7 +42,7 @@ cmd mkfile %{{
 cmd trash %trash-put $fx
 
 cmd wallpaper ${{
-	feh --bg-scale $f
+	set-wall.sh $f
 #	swaybg -i $f & disown
 }}
 

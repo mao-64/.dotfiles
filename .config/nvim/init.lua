@@ -31,11 +31,12 @@ require "mao.colors"
 
 require "mao.keybins"
 
---require "mao.treesitter"
+require "mao.treesitter"
 
 require "mao.lsp"
 
 require "mao.nvimtree"
+
 
 require'colorizer'.setup()
 
@@ -46,9 +47,10 @@ require"mao.dashboard"
 
 --require"mao.which-key"
 
-require"mao.oil"
+--require"mao.oil"
 
 require"mao.neoclip"
+
 
 require("cmp_dictionary").setup({
     dic = {

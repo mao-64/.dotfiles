@@ -1,14 +1,15 @@
 require'lspconfig'.tsserver.setup{}
+require"lspconfig".qmlls.setup {}
 
-require'lspconfig'.rust_analyzer.setup{}
-require'lspconfig'.jedi_language_server.setup{}
-require'lspconfig'.gopls.setup{
-	on_attach = function()
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
-	end
-}
---require'lspconfig'.sumneko_lua.setup{}
-require'lspconfig'.lua_ls.setup {}
+--require'lspconfig'.rust_analyzer.setup{}
+--require'lspconfig'.jedi_language_server.setup{}
+--require'lspconfig'.gopls.setup{
+--	on_attach = function()
+--		vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
+--	end
+--}
+----require'lspconfig'.sumneko_lua.setup{}
+--require'lspconfig'.lua_ls.setup {}
 --require'lspconfig'.lua_ls.setup {
 --  settings = {
 --    Lua = {

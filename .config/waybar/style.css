@@ -16,6 +16,7 @@
 	min-height: 0px;
 	padding-left: 2pt;
 	padding-right: 2pt;
+	color: #bd93f9;
 }
 
 window#waybar {
@@ -100,6 +101,15 @@ window#waybar.PCSX2 #window {
 #mpd.stopped {
 	color: #f8f8f2;
 	background: #282a36;
+}
+
+#custom.dtg {
+	margin-top: 0px;
+	margin-left: 8px;
+	margin-bottom: 0;
+	border-radius: 10px;
+	transition: none;
+	color: #bd93f9;
 }
 
 #network {
