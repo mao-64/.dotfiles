@@ -87,5 +87,6 @@ map gh cd /home/mao
 map gp cd /home/mao/Pictures/
 map gdt cd /home/mao/Desktop/
 map gv cd /home/mao/Videos
+map ga cd /home/mao/Vault/Alldrives/
 
 #source ~/Scripts/bm/bm.lf

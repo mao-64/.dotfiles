@@ -9,6 +9,10 @@ video/mp4=mpv.desktop
 video/x-matroska=mpv.desktop
 x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
 text/plain=org.gnome.gedit.desktop
+x-scheme-handler/ror2mm=amethystmodmanager-ror2mm.desktop
+x-scheme-handler/nxm=amethystmodmanager-nxm.desktop
+x-scheme-handler/grokbot=grok-bot.desktop
+x-scheme-handler/sand=grok-bot.desktop
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-GE0YI1.desktop;
@@ -21,3 +25,7 @@ image/png=localsend.desktop;
 text/plain=org.gnome.gedit.desktop;
 video/quicktime=mpv.desktop;
 image/x-olympus-orf=RapidRAW.desktop;org.darktable.darktable.desktop;
+image/webp=nsxiv.desktop;
+application/octet-stream=vim.desktop;
+x-scheme-handler/ror2mm=amethystmodmanager-ror2mm.desktop
+audio/x-m4b=vlc.desktop;
