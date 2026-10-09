@@ -1,6 +1,6 @@
 #!/bin/sh
 draw() {
-  kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$1" </dev/null >/dev/tty
+  kitty +kitten icat --silent --stdin no --transfer-mode memory --place "${w}x${h}@${x}x${y}" "$1" </dev/null >/dev/tty
   exit 1
 }
 
