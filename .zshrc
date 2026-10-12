@@ -291,3 +291,6 @@ unset __conda_setup
 export PATH="$PATH:/home/mao/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+# Pi
+#export PATH="$HOME/.local/bin:$PATH"

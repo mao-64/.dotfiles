@@ -5,7 +5,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 export EDITOR="nvim"
 #export READER="zathura"
 export VISUAL="nvim"
-export TERMINAL="st"
+export TERMINAL="ghostty"
 export BROWSER="brave"
 export VIDEO="mpv"
 export IMAGE="nsxiv"

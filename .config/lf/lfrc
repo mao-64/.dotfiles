@@ -14,9 +14,9 @@ set number true
 set relativenumber true
 
 cmd ow ${{
-	printf "open with: "
-	read app
-	$app $f
+	printf "Open with: "
+	IFS= read -r app
+	[ -n "$app" ] && "$app" "$f"
 }}
 
 # Custom Functions
@@ -72,8 +72,15 @@ cmd zi ${{
     lf -remote "send ${id} cd '${result}'"
 }}
 
+cmd fzf ${{
+    file="$(find . -mindepth 1 -maxdepth 1 -print | fzf --prompt='Files> ')"
+    [ -n "$file" ] && lf -remote "send $id select \"$file\""
+}}
+
 map <enter> open
+map o ow
 map e
+map f fzf
 
 map sw wallpaper
 
