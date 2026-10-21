@@ -15,9 +15,20 @@ case "$(file -Lb --mime-type "$file")" in
     draw "$file"
     ;;
   video/*)
-    # vidthumb is from here:
-    # https://raw.githubusercontent.com/duganchen/kitty-pistol-previewer/main/vidthumb
-    draw "$(vidthumb.sh "$file")"
+    # Generate (or reuse) an ffmpegthumbnailer preview, then display it with kitty.
+    thumbnail="$HOME/.config/lf/vidthumb.sh"
+    image=$("$thumbnail" "$file")
+    if [ -n "$image" ] && [ -f "$image" ]; then
+      draw "$image"
+    fi
+    ;;
+  *.mp4)
+    # Some systems report MP4 as application/octet-stream instead of video/mp4.
+    thumbnail="$HOME/.config/lf/vidthumb.sh"
+    image=$("$thumbnail" "$file")
+    if [ -n "$image" ] && [ -f "$image" ]; then
+      draw "$image"
+    fi
     ;;
 esac
 
